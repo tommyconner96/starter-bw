@@ -16,8 +16,7 @@ server.use(cookieParser())
 server.use(express.json())
 
 server.use(cors({
-	credentials: true,
-	origin: "http://localhost:3000",
+	credentials: true
 }))
 
 server.use("/auth", authRouter)
