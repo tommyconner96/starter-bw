@@ -9,6 +9,8 @@ const restrict = require("./middleware/restrict")
 const server = express()
 const port = process.env.PORT || 5000
 
+require('dotenv').config(); // add this line as the first thing to run1
+
 server.use(helmet())
 server.use(cookieParser())
 server.use(express.json())
