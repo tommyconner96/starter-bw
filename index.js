@@ -22,7 +22,10 @@ server.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true);
     next();
   });
-server.use(cors())
+  server.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+  }));
 
 server.use("/auth", authRouter)
 server.use("/coffee", restrict(), coffeeRouter)
