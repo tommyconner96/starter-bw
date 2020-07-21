@@ -1,1 +1,1 @@
-web: node index.js
+starter-bw: node index.js
