@@ -2,7 +2,7 @@
   "main": "index.js",
 	"scripts": {
 		"server": "nodemon -r dotenv/config index.js",
-		"start": "nodemon -r dotenv/config index.js"
+		"start": "node index.js"
   },
   "engines": {
     "node": "12.13.0"
