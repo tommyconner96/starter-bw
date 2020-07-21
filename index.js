@@ -22,10 +22,7 @@ server.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true)
     next()
 })
-server.use(cors({
-    credentials: true,
-    origin: 'https://elastic-jackson-7f8963.netlify.app'
-}))
+server.use(cors())
 
 server.use("/auth", authRouter)
 server.use("/coffee", restrict(), coffeeRouter)
