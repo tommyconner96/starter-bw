@@ -6,7 +6,7 @@ const authRouter = require("./auth/auth-router")
 const coffeeRouter = require("./coffee/coffee-router")
 const restrict = require("./middleware/restrict")
 
-require('dotenv').config(); // add this line as the first thing to run1
+// require('dotenv').config(); // add this line as the first thing to run1
 const server = express()
 const port = process.env.PORT || 5000
 
