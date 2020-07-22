@@ -12,16 +12,16 @@ const port = process.env.PORT || 5000
 server.use(helmet())
 server.use(cookieParser())
 server.use(express.json())
-server.use((req, res, next) => {
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Origin", "https://starter-bw.herokuapp.com/" );
-    res.header("Access-Control-Allow-Origin", "https://starter-bw.herokuapp.com/auth/login" )
-    res.header("Access-Control-Allow-Origin", "https://starter-bw.herokuapp.com/auth/register" );;
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie");
+// server.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header("Access-Control-Allow-Origin", "https://starter-bw.herokuapp.com/" );
+//     res.header("Access-Control-Allow-Origin", "https://starter-bw.herokuapp.com/auth/login" )
+//     res.header("Access-Control-Allow-Origin", "https://starter-bw.herokuapp.com/auth/register" );;
+//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie");
 
-    next();
-  });
+//     next();
+//   });
 server.use(cors())
 
 server.use("/auth", authRouter)
