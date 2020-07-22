@@ -21,7 +21,7 @@ server.use((req, res, next) => {
   });
 server.use(cors({
 	credentials: true,
-	origin: 'https://elastic-jackson-7f8963.netlify.app/',
+	origin: 'https://elastic-jackson-7f8963.netlify.app',
 }))
 
 server.use("/auth", authRouter)
