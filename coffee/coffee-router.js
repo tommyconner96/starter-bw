@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 // GET coffees
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   db
     .get()
     .then(coffee => {
@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
     })
 })
 //get coffee by id
-router.get('/:id', (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   db.getById(req.params.id)
     .then(user => {
       res.status(200).json(user)
