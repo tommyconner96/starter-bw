@@ -16,7 +16,7 @@ server.use(helmet())
 server.use(cors())
 server.use(express.json())
 server.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", 'https://elastic-jackson-7f8963.netlify.app');
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie");
     res.header("Access-Control-Allow-Credentials", true);
@@ -24,7 +24,10 @@ server.use((req, res, next) => {
   });
   //whitelist domain for cookies
   
-  server.use(cors());
+  server.use(cors({
+    credentials: true,
+    origin: 'https://elastic-jackson-7f8963.netlify.app'
+  }));
 server.use(session({
 	resave: false, // avoids recreating sessions that have not changed
 	saveUninitialized: false, // comply with GDPR laws
@@ -32,7 +35,7 @@ server.use(session({
     name: 'sessionCookie',
     cookie: {
       maxAge: 1000 * 60 * 60,
-      secure: true,
+    //   secure: true,
       httpOnly: true
     },
 	// store: new KnexSessionStore({
