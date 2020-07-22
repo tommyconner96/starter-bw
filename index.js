@@ -24,10 +24,7 @@ server.use((req, res, next) => {
   });
   //whitelist domain for cookies
   
-  server.use(cors({
-    credentials: true,
-    origin: 'https://elastic-jackson-7f8963.netlify.app'
-  }));
+  server.use(cors());
 server.use(session({
 	resave: false, // avoids recreating sessions that have not changed
 	saveUninitialized: false, // comply with GDPR laws
