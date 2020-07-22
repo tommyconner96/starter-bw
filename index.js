@@ -13,7 +13,7 @@ server.use(helmet())
 server.use(cookieParser())
 server.use(express.json())
 server.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", req.headers.origin );
+    res.header("Access-Control-Allow-Origin", 'https://elastic-jackson-7f8963.netlify.app' );
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Set-Cookie");
     res.header("Access-Control-Allow-Credentials", true);
@@ -21,7 +21,7 @@ server.use((req, res, next) => {
   });
 server.use(cors({
 	credentials: true,
-	origin: 'http://localhost:3000',
+	origin: 'https://elastic-jackson-7f8963.netlify.app',
 }))
 
 server.use("/auth", authRouter)
