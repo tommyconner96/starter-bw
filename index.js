@@ -1,11 +1,12 @@
 const express = require("express")
 const helmet = require("helmet")
 const cookieParser = require("cookie-parser")
+const session = require('express-session')
 const cors = require("cors")
 const authRouter = require("./auth/auth-router")
 const coffeeRouter = require("./coffee/coffee-router")
 const restrict = require("./middleware/restrict")
-
+const bodyParser = require('body-parser');
 const server = express()
 const port = process.env.PORT || 5000
 
@@ -19,10 +20,10 @@ server.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true);
     next();
   });
-server.use(cors({
-	credentials: true,
-	origin: 'https://elastic-jackson-7f8963.netlify.app',
-}))
+// server.use(cors({
+// 	credentials: true,
+// 	origin: 'https://elastic-jackson-7f8963.netlify.app',
+// }))
 
 server.use("/auth", authRouter)
 server.use("/coffee", restrict(), coffeeRouter)
