@@ -12,9 +12,6 @@ const server = express()
 const port = process.env.PORT || 5000
 const db = require('./database/data')
 
-server.use(helmet())
-server.use(cors())
-server.use(express.json())
 server.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", 'https://elastic-jackson-7f8963.netlify.app' );
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
@@ -22,6 +19,10 @@ server.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true);
     next();
   });
+server.use(helmet())
+server.use(cors())
+server.use(express.json())
+
   //whitelist domain for cookies
   
   server.use(cors({
