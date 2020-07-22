@@ -33,7 +33,7 @@ router.post('/login', (req, res, next) => {
 				//adds jwt token
 				const token = createToken(user)
 				// req.session.user = user
-				res.cookie("token", token, {sameSite: none, secure})
+				res.cookie("token", token, {sameSite: none, secure: true, httpOnly: true})
 				//adds session 
 				res.status(200).json({ message: `Hi ${user.username}! have a token:`, token })
 			} else {
