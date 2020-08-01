@@ -14,7 +14,7 @@ function restrict() {
 			}
 
 			//checks to make sure the signature is valid and the token is not expired
-			jwt.verify(token, "secret secret", (err, decoded) => {
+			jwt.verify(token, process.env.TOP_SECRET, (err, decoded) => {
 				if (err) {
 					return res.status(401).json(authError)
 				}
